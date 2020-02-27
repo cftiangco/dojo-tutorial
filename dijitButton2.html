@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: Dijit Button 2</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
+  <body class="claro">
+    <button type="button" id="btn">
+
+    </button>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:false,parseOnLoad:true"></script>
+    <script type="text/javascript">
+        require(['dojo/parser','dijit/form/Button','dojo/domReady!'], function(parser, Button) {
+          var btn = new Button({
+            label: "Click Here!",
+            onClick:function() {console.log('button clicked')
+          }
+        },"btn");
+          btn.startup();
+        });
+    </script>
+
+  </body>
+</html>

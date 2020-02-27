@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DOJO FX - Animate Property</title>
+  </head>
+  <body>
+    <h1>DEMO: DOJO FX - Animate Property</h1>
+
+    <div class="testNode" style="background:green;width:500px;height:500px;display:black;color:white;font-weight:bold;" id="testNode">
+      Hello Dojo.
+    </div>
+    <br>
+    <button type="button" name="button" id="shrink">Shrink And Red</button>
+    <button type="button" name="button" id="grow">Grow and Green</button>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script type="text/javascript">
+      require([
+        'dojo/on',
+        'dojo/dom',
+        'dojo/_base/fx',
+        'dojo/domReady!'
+      ],function(on,dom,fx) {
+        var testNode = dom.byId('testNode');
+        var redButton = dom.byId('shrink');
+        var greenButton = dom.byId('grow');
+
+        on(redButton,'click', function() {
+          fx.animateProperty({
+            node:testNode,
+            properties: {
+              backgroundColor:"red",
+              height:{start:200,end:1000},
+              width:100
+            },
+            duration:1000,
+            delay:1000
+          }).play();
+        });
+
+        on(greenButton,'click',function() {
+          fx.animateProperty({
+            node:testNode,
+            properties: {
+              backgroundColor:"green",
+              height:500,
+              width:500
+            },
+            duration:500,
+            delay:500
+          }).play();
+        });
+      });
+    </script>
+  </body>
+</html>

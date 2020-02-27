@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: DOM Functions - EMPTY</title>
+  </head>
+  <body>
+    <h1>DEMO: DOMCONSTRUCTOR EMPTY</h1>
+
+    <div class="container" id="testClass" style="border:1px solid black;">
+      <div class="testClass" id="test1" style="border:1px solid red;">First Day</div>
+      <div class="testClass" id="test2" style="border:1px solid pink;">Second Day</div>
+      <div class="testClass" id="test3" style="border:1px solid green;">Third Day</div>
+      <div class="testClass" id="test4" style="border:1px solid yellow;">Fourth Day</div>
+      <div class="testClass" id="test5" style="border:1px solid grey;">Fifth Day</div>
+      <div class="testClass" id="test6" style="border:1px solid violet;">Sixth Day</div>
+    </div>
+    <br>
+    <button type="button" name="button" id="removeTestNodes">Remove Test Nodes</button>
+    <button type="button" name="button" id="removeFirstDiv">Remove First Div</button>
+    <button type="button" name="button" id="removeSecondDiv">Remove Second Div</button>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script type="text/javascript">
+      require([
+        'dojo/on',
+        'dojo/dom',
+        'dojo/query',
+        'dojo/dom-construct',
+        'dojo/domReady'
+      ],function(on,dom,query,domConstruct) {
+
+        var removeTestNodesButton = dom.byId('removeTestNodes');
+        var removeFirstDivButton = dom.byId('removeFirstDiv');
+        var removeSecondDivButton = dom.byId('removeSecondDiv');
+        var test1 = dom.byId('test1');
+        var test2 = dom.byId('test2');
+        var test3 = dom.byId('test3');
+
+        on(removeTestNodesButton,'click',function() {
+          query('.testClass').forEach(domConstruct.empty);
+        });
+
+        on(removeFirstDivButton,'click',function() {
+          domConstruct.destroy(test1);
+        });
+
+        on(removeSecondDivButton,'click',function() {
+          domConstruct.destroy(test2);
+        });
+
+      });
+    </script>
+  </body>
+</html>

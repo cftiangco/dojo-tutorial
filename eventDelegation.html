@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Selector Demo</title>
+  </head>
+  <body>
+    <h1>NodeList.on demo</h1>
+
+    <div class="myDiv" id="myDiv">
+      <button type="button" name="buttonTest1" class="clickMe" id="button1">Click Me 1</button>
+      <button type="button" name="buttonTest2" class="clickMe" id="button2">Click Me 2</button>
+      <button type="button" name="buttonTest3" class="clickMe" id="button3">Click Me 3</button>
+    </div>
+
+
+    <!-- =============== JAVASCRIPT CONTENT ================== -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script type="text/javascript">
+
+      require(["dojo/dom","dojo/query","dojo/on","dojo/domReady"],function(dom,query,on) {
+          var myDiv = dom.byId("myDiv");
+          on(myDiv,'.clickMe:click',function(e) {
+            alert(e.target.id);
+          });
+      });
+
+    </script>
+  </body>
+</html>

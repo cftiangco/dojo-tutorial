@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: Dijit Button</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
+  <body class="claro">
+
+    <button type="button" id="btn" data-dojo-type="dijit/form/Button" data-dojo-props="onClick:function() {console.log('button was clicked')}">
+      Click Me!
+    </button>
+
+    <button type="button" id="btn2" data-dojo-type="dijit/form/ToggleButton" data-dojo-props="checked:false,iconClass:'dijitCheckBoxIcon',onClick:function() {console.log('togglebutton was clicked')}">
+      Toggle Button
+    </button>
+
+    <div id="dropDownBtn" data-dojo-type="dijit/form/DropDownButton" data-dojo-props="iconClass:'dijitIconApplication'">
+      <span>Dropdown Button</span>
+      <div id="dropDownToolTip" data-dojo-type="dijit/TooltipDialog">
+        Dropdown tooltip dialog
+      </div>
+    </div>
+
+    <div id="comboBtn" data-dojo-type="dijit/form/ComboButton" data-dojo-props="onClick:function() {console.log('combo button was clicked')}">
+      <span>Combo Button</span>
+
+      <div id="comboButtonDropDownToolTip" data-dojo-type="dijit/TooltipDialog">
+        Combo Button tooltip
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:false,parseOnLoad:true"></script>
+    <script type="text/javascript">
+        require(['dojo/parser','dijit/form/Button','dijit/form/ToggleButton','dojo/domReady!']);
+    </script>
+
+  </body>
+</html>

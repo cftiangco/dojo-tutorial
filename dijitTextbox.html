@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: Dijit text box</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
+  </head>
+  <body class="claro">
+    <h1>DEMO: DIJIT</h1>
+
+    <label for="textBox">Name: </label>
+    <input id="textBox" data-dojo-type="dijit/form/TextBox" data-dojo-props="placeHolder:'Enter a value'">
+    <br>
+    <label for="textArea">Details: </label>
+
+    <textarea id="textArea" data-dojo-type="dijit/form/SimpleTextarea" data-dojo-props="cols:50,rows:5,onFocus:function(){console.log('test')},
+    onBlur: function(){console.log('simple textarea blur')}">Sample text here...</textarea>
+
+    <br>
+    <label for="textArea2">More Details : </label>
+    <textarea id="textArea2" data-dojo-type="dijit/form/Textarea" data-dojo-props="cols:50,rows:5,onFocus:function(){console.log('test')},
+    onBlur: function(){console.log('simple textarea2 blur')}">Sample text here...</textarea>
+
+
+    <div class="">
+      <label for="numberTextBox">Width: </label>
+      <input id="numberTextBox" data-dojo-type="dijit/form/NumberTextBox" data-dojo-props="required:true,constraints:{min:100, max:500}">
+    </div>
+
+    <div class="">
+      <label for="currencyTextBox">Price: </label>
+      <input id="currencyTextBox" data-dojo-type="dijit/form/CurrencyTextBox" data-dojo-props="currency:'USD',invalidMessage:'numbers only'">
+    </div>
+
+    <div class="">
+      <label for="numberSpinner">Number Spinner</label>
+      <input id="numberSpinner" data-dojo-type="dijit/form/NumberSpinner" data-dojo-props="placeHolder:'Enter a value'">
+    </div>
+
+    <div class="">
+      <label for="validationTextBox">Validation TextBox</label>
+      <input id="validationTextBox" data-dojo-type="dijit/form/ValidationTextBox"
+      data-dojo-props="regExp:'[\\w]+',placeHolder:'Enter a value'">
+    </div>
+
+    <div class="">
+      <label for="datePicker">Date Picker</label>
+      <input id="datePicker" data-dojo-type="dijit/form/DateTextBox" data-dojo-props="">
+    </div>
+
+    <div class="">
+      <label for="timePicker">Time Picker</label>
+      <input id="timePicker" data-dojo-type="dijit/form/TimeTextBox" data-dojo-props="">
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:false,parseOnLoad:true"></script>
+    <script type="text/javascript">
+      require([
+        'dojo/parser',
+        'dijit/form/TextBox',
+        'dijit/form/SimpleTextarea',
+        'dijit/form/Textarea',
+        'dijit/form/NumberTextBox',
+        'dijit/form/CurrencyTextBox',
+        'dijit/form/NumberSpinner',
+        'dijit/form/ValidationTextBox',
+        'dijit/form/DateTextBox',
+        'dijit/form/TimeTextBox',
+        'dojo/domReady!'
+      ]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Dojo</title>
+    <style>
+      .testClass {
+        color:red;
+      }
+
+      .test {
+        width:300px;
+        height:150px;
+        border: 1px solid red;
+        background-color: pink;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+
+      <div id="myDiv">
+        Mouse over to change ,y background to yellow
+      </div>
+
+      <button type="button" name="button" id="showDiv">ShowDiv</button>
+      <button type="button" name="button" id="hideDiv">hideDiv</button>
+
+
+      <div id="domStyle" class="test">
+        DOMEStyle
+      </div>
+
+      <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+      <script type="text/javascript">
+        require(["dojo/dom","dojo/on","dojo/mouse","dojo/dom-style","dojo/domReady"], function(dom,on,mouse,domstyle) {
+            var showButton = dom.byId("showDiv");
+            var hideButton = dom.byId("hideDiv");
+            var div = dom.byId("myDiv");
+            var domStyleDiv = dom.byId("domStyle");
+
+            // or on(div,"mouseenter",function(event)
+            on.once(div,mouse.enter,function(event) {
+              domstyle.set(div,"width","2500px");
+              div.innerHTML = "Move mouse pointer away to change color to white; width is - " + domstyle.get(div,"width");
+              div.style.background = "yellow";
+            });
+
+            on(div,mouse.leave,function(event) {
+                div.style.background = "white";
+                div.innerHTML = "Mouse over to change my background to yellow";
+            });
+
+            on(hideButton,'mousedown',function() {
+              if(mouse.isLeft(event)) {
+                  alert("mouse left is clicked");
+              } else if(mouse.isRight(event)) {
+                  alert("mouse right is clicked");
+              }
+              div.style.display = "none";
+            });
+
+            on(showButton,'click',function() {
+                if(div.style.display == "none") {
+                  div.style.display = "block";
+                }
+                var styles =  domstyle.getComputedStyle(domStyleDiv);
+                div.innerHTML = "width is:" + styles.width + "Background: " + styles.backgroundColor + "height: " +  styles.height;
+
+
+            });
+        });
+      </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Dojo</title>
+    <style>
+      .testClass {
+        color:red;
+      }
+    </style>
+  </head>
+  <body>
+
+      <div class="" id="myDiv">
+        Mouse over to change ,y background to yellow
+      </div>
+
+      <button type="button" name="button" id="showDiv">ShowDiv</button>
+      <button type="button" name="button" id="hideDiv">hideDiv</button>
+
+      <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+      <script type="text/javascript">
+        require(["dojo/dom","dojo/on","dojo/domReady"], function(dom,on) {
+            var showButton = dom.byId("showDiv");
+            var hideButton = dom.byId("hideDiv");
+            var div = dom.byId("myDiv");
+
+            on(div,"mouseenter",function(event) {
+              div.innerHTML = "Move mouse pointer away to change color to white";
+              div.style.background = "yellow";
+            });
+
+            on(div,"mouseleave",function(event) {
+                div.style.background = "white";
+                div.innerHTML = "Mouse over to change my background to yellow";
+            });
+
+            on(hideButton,'click',function() {
+              div.style.display = "none";
+            });
+
+            on(showButton,'click',function() {
+                if(div.style.display == "none") {
+                  div.style.display = "block";
+                }
+            });
+        });
+      </script>
+
+
+  </body>
+</html>

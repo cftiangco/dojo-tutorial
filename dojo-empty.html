@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: DOM Functions - EMPTY</title>
+  </head>
+  <body>
+    <h1>DEMO: DOMCONSTRUCTOR EMPTY</h1>
+    <div class="container" id="container" style="border:1px solid black;">
+      <div class="" id="test1" style="border:1px solid red;">First Div</div>
+      <div class="" id="test2" style="border:1px solid blue;">Second Div</div>
+    </div>
+    <br>
+    <button type="button" name="button" id="removeTest1">Remove Test 1</button>
+    <button type="button" name="button" id="removeTest2">Remove Test 2</button>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script type="text/javascript">
+      require(['dojo/dom','dojo/on','dojo/dom-construct','dojo/domReady'],function(dom,on,domConstruct) {
+        var test1 = dom.byId('test1');
+        var test2 = dom.byId('test2');
+        var container = dom.byId('container');
+        var removeTest1Button = dom.byId('removeTest1');
+        var removeTest2Button = dom.byId('removeTest2');
+
+
+
+
+        on(removeTest1,'click',function(e) {
+          domConstruct.empty(test1);
+        });
+
+        on(removeTest2,'click',function(e) {
+          domConstruct.empty(test2);
+        });
+      });
+    </script>
+  </body>
+</html>

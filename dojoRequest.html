@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DOJO Request</title>
+  </head>
+  <body>
+    <h2>DEMO: DOJO/REQUEST</h2>
+
+    <div class="testDiv" id="testDiv">
+
+    </div>
+    <br>
+    <button type="button" id="textButton" name="button">Click Here..</button>
+
+      <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+      <script type="text/javascript">
+        require([
+          'dojo/dom',
+          'dojo/on',
+          'dojo/request',
+          'dojo/domReady!'
+        ], function(dom,on,request) {
+          var testDiv = dom.byId('testDiv');
+          var textBtn = dom.byId('textButton');
+          var html = "<table border=1>";
+          html += "<tr><th>Name</th><th>Email</th><th>Phone</th><th>Title</th></tr>";
+          on(textBtn,'click', function(e) {
+            request("./textFile2.txt", {handleAs:"json"})
+              .then(function(response) {
+                response.Employee.map(res => {
+                  html += "<tr>";
+                  html += `<td>${res.name}</td>`
+                  html += `<td>${res.email}</td>`
+                  html += `<td>${res.phone}</td>`
+                  html += `<td>${res.title}</td>`
+                  html += "</tr>";
+                });
+                html += "</table>";
+                testDiv.innerHTML = html;
+              },function(error) {
+                testDiv.innerHTML = `There's an error: ${error}`;
+              });
+          });
+
+        });
+      </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Demo: Diji Select</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css" media="screen">
+  </head>
+  <body class="claro">
+    <h1>DEMO : DIJIT SELECT BOX</h1>
+
+    <select name="basic" data-dojo-type="dijit/form/Select" id="basicSelect">
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+    </select>
+
+    <button type="button" name="button" id="getValue" data-dojo-type="dijit/form/Button" onClick="alert(dijit.byId('basicSelect').get('value'))">Get Value</button>
+    <button type="button" name="button" id="getDisplayValue" data-dojo-type="dijit/form/Button" onClick="alert(dijit.byId('basicSelect').get('displayedValue'))">Get Displayed Value</button>
+
+    <br>
+
+    <select name="basic" data-dojo-type="dijit/form/MultiSelect" id="MultiSelect">
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+    </select>
+    <button type="button" name="button" id="getMultiValue" data-dojo-type="dijit/form/Button" onClick="alert(dijit.byId('MultiSelect').get('value'))">Get Value</button>
+    <br>
+
+    <select name="basic" data-dojo-type="dijit/form/ComboBox" id="comboBox">
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+    </select>
+    <button type="button" name="button" id="getComboValue" data-dojo-type="dijit/form/Button" onClick="alert(dijit.byId('comboBox').get('value'))">Get Value</button>
+    <br>
+
+    <select name="basic" data-dojo-type="dijit/form/FilteringSelect" id="filterSelect">
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+    </select>
+    <button type="button" name="button" id="getfilterValue" data-dojo-type="dijit/form/Button" onClick="alert(dijit.byId('filterSelect').get('value'))">Get Value</button>
+    <br>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:false,parseOnLoad:true"></script>
+    <script type="text/javascript">
+      require([
+        'dojo/parser',
+        'dijit/form/Select',
+        'dijit/form/MultiSelect',
+        'dijit/form/ComboBox',
+        'dijit/form/FilteringSelect',
+        'dojo/domReady!'
+      ]);
+    </script>
+  </body>
+</html>

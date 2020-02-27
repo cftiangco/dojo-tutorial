@@ -1,0 +1,10 @@
+{
+  "title":"Employee Details",
+  "Employee":
+  [
+    {"name":"eric1","email":"emp1@dojo.com","phone":"12345-6","title":"developer1"},
+    {"name":"eric2","email":"emp2@dojo.com","phone":"12345-7","title":"developer2"},
+    {"name":"eric3","email":"emp3@dojo.com","phone":"12345-8","title":"developer3"},
+    {"name":"eric4","email":"emp4@dojo.com","phone":"12345-9","title":"developer4"}
+  ]
+}

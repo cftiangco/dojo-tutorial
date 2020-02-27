@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DOJO FX - Chanin and Combine</title>
+  </head>
+  <body>
+    <h1>DEMO: DOJO FX - Chain and Combain</h1>
+
+    <div class="testNode" id="testNode" style="background-color:green;width:200px;display:block;">
+      Hello Dojo
+    </div>
+
+    <br>
+    <button type="button" name="button" id="slideOut">Slide And Fade-Out</button>
+    <button type="button" name="button" id="slideIn">Slide And Fade-In</button>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script type="text/javascript">
+      require([
+        'dojo/on',
+        'dojo/dom',
+        'dojo/query',
+        'dojo/fx',
+        'dojo/fx/easing',
+        'dojo/_base/fx',
+        'dojo/domReady!'
+      ],function(on,dom,query,fx,easy,baseFx) {
+        //code goes here
+        var slideOutButton = dom.byId('slideOut');
+        var slideInButton = dom.byId('slideIn');
+        var testNode = dom.byId('testNode');
+
+        on(slideOutButton,'click',function() {
+          fx.combine(fx.slideTo({node:testNode,duration:2000,top:200,left:500}).play(),baseFx.fadeOut({node:testNode,duration:3000}).play());
+        });
+
+        on(slideInButton,'click',function() {
+          fx.chain(baseFx.fadeIn({node:testNode,duration:3000}).play(),fx.slideTo({node:testNode, duration:2000,top:60,left:10}).play())
+        });
+      });
+    </script>
+  </body>
+</html>
